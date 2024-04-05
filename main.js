@@ -30,7 +30,7 @@ const keys = {
 
 for (let i = 0; i < 8; i++) {
   let imgInstance = new Image;
-  imgInstance.src = `sprites/explosion/Explosion${i}.png`;
+  imgInstance.src = `Explosion${i}.png`;
   explosionFrames.push(imgInstance);
 }
 
@@ -136,8 +136,8 @@ const generateEnemy = () => {
       0, // y
       100, //Width
       100, //Height
-      "sprites/Enemy_sprite.png", //Sprite Path
-      "sfx/shoot1.wav", //SFX Path
+      "Enemy_sprite.png", //Sprite Path
+      "shoot1.wav", //SFX Path
       0.05, //SFX volume Change Maybe
       "red", //Bullet Color
       "enemy", //Type
@@ -169,22 +169,12 @@ const updateExplosionAnimation = (enemy) => {
 
 const setGameOverScreen = () => {
   gameOver = true;
-  let audioInstance = new Audio("sfx/fail.wav")
+  let audioInstance = new Audio("fail.wav")
   audioInstance.volume = 0.4;
   audioInstance.play();
   audioPlaying.push(audioInstance);
   gameOverScreen.style.zIndex = 1;
   gameOverScore.innerHTML = `Score: ${score}`
-
-  // setTimeout(() => {
-  //   ctx.fillStyle = "#050532";
-  //   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  //   ctx.font = "100px arial";
-  //   ctx.fillStyle = "white";
-  //   ctx.fillText("GAME OVER", canvas.width / 2 - 300, canvas.height / 2);
-  //   ctx.font = "70px arial";
-  //   ctx.fillText(`Score: ${score}`, canvas.width / 2 - 150, canvas.height / 2 + 100);
-  // }, 100);
 }
 
 let player = new SpaceShip(
@@ -193,8 +183,8 @@ let player = new SpaceShip(
   canvas.height - 100, //y
   100, //Width
   100, //Height
-  "sprites/Player_Sprite_128.png", //Sprite Path 
-  "sfx/shoot_player.wav", //SFX Path
+  "Player_Sprite_128.png", //Sprite Path 
+  "shoot_player.wav", //SFX Path
   0.05, //SFX Volume
   "lightgreen", //Bullet Color
   "player", //Type
@@ -257,7 +247,7 @@ const update = () => {
         if (enemy.health <= 0) {
           score += enemy.value;
           enemy.alive = false;
-          let audioInstance = new Audio("sfx/explosion.wav")
+          let audioInstance = new Audio("explosion.wav")
           audioInstance.volume = 0.4;
           audioInstance.play();
           audioPlaying.push(audioInstance);
@@ -271,7 +261,7 @@ const update = () => {
       bulletsFired.splice(bulletsFired.indexOf(bullet), 1);
       if (player.health <= 0) {
         player.alive = false;
-        audioInstance = new Audio("sfx/explosion.wav")
+        audioInstance = new Audio("explosion.wav")
         audioInstance.volume = 0.4;
         audioInstance.play();
         audioPlaying.push(audioInstance);
