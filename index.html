@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Fighters</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #050532;
+    }
+
+    canvas {
+      aspect-ratio: 2/1;
+      width: 100%;
+    }
+
+    button {
+      background: #050532;
+      color: white;
+      border: 2px solid white;
+      border-radius: 7px;
+    }
+
+    .flex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    #gameOverScreen {
+      background: #050532;
+      color: white;
+      position: absolute;
+      width: 100vw;
+      aspect-ratio: 2/1;
+      overflow: hidden;
+      top: 0;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+<canvas width="2000" height="1000"></canvas>
+<div id="gameOverScreen" class="flex">
+  <h1>GAME OVER</h1>
+  <h3 id="gameOverScore">Score: 0</h3>
+</div>
+</body>
+<script type="module" src="main.js"></script>
+</html>
